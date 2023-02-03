@@ -9,7 +9,6 @@ import java.util.List;
 
 public class UserDaoJDBCImpl extends Util implements UserDao {
     Connection connection = getConnection();
-    PreparedStatement preparedStatement = null;
 
     public UserDaoJDBCImpl() {
     }
@@ -54,7 +53,7 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
         }
     }
 
-    public List<User> getAllUsers() throws SQLException, NullPointerException {
+    public List<User> getAllUsers() throws  NullPointerException {
         List<User> getAllUsers1 = new ArrayList<>();
         String sql = "SELECT * FROM kata";
         try (Statement statement = connection.createStatement()) {
