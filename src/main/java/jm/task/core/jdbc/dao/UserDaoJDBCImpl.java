@@ -45,11 +45,13 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
         }
     }
 
-    public void removeUserById(long id) throws SQLException {
+    public void removeUserById(long id) {
         String sql = "DELETE FROM kata WHERE ID=?";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setLong(1, id);
             preparedStatement.executeUpdate();
+        }catch (SQLException e){
+            e.printStackTrace();
         }
     }
 
