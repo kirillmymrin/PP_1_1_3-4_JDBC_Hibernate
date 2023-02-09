@@ -21,7 +21,7 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
                 "age INTEGER, " +
                 "PRIMARY KEY (id))";
 
-        try(PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -50,12 +50,12 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setLong(1, id);
             preparedStatement.executeUpdate();
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public List<User> getAllUsers() throws  NullPointerException {
+    public List<User> getAllUsers() throws NullPointerException {
         List<User> getAllUsers1 = new ArrayList<>();
         String sql = "SELECT * FROM kata";
         try (Statement statement = connection.createStatement()) {
